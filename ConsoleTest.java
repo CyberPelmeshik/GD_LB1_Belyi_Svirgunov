@@ -24,49 +24,49 @@ public class ConsoleTest {
             if (match.endsWith("x^2")) {
                 if (match.equals("+x^2")) {
                     a += 1.0;
-                } else if (match.equals("-x^2")) {
+                }
+                else if (match.equals("-x^2")){
                     a -= 1.0;
-                } else {
+                }
+                else {
                     a += parseCoefficient(match);
                 }
             } else if (match.endsWith("x") && !match.contains("^")) {
                 if (match.equals("+x")) {
                     b += 1.0;
-                } else if (match.equals("-x")) {
+                }
+                else if (match.equals("-x")){
                     b -= 1.0;
-                } else {
+                }
+                else {
                     b += parseCoefficient(match);
                 }
             } else {
                 c += parseCoefficient(match);
             }
         }
-        if (a == 0) {
-            System.out.println("Уравнение не является квадратным, так как коэффициент a равен 0."); // Первое изменение
+        // Вычисление дискриминанта
+        double discriminant = b * b - 4 * a * c;
+
+
+        System.out.println("a = " + a);
+        System.out.println("b = " + b);
+        System.out.println("c = " + c);
+        System.out.println("Дискриминант = " + discriminant);
+
+        // Проверка знака дискриминанта
+        if (discriminant > 0) {
+            double root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+            double root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+            System.out.println("Уравнение имеет два корня:");
+            System.out.println("x1 = " + root1);
+            System.out.println("x2 = " + root2);
+        } else if (discriminant == 0) {
+            double root = -b / (2 * a);
+            System.out.println("Уравнение имеет один корень:");
+            System.out.println("x = " + root);
         } else {
-            // Вычисление дискриминанта
-            double discriminant = b * b - 4 * a * c;
-
-
-            System.out.println("a = " + a);
-            System.out.println("b = " + b);
-            System.out.println("c = " + c);
-            System.out.println("Дискриминант = " + discriminant);
-
-            // Проверка знака дискриминанта
-            if (discriminant > 0) {
-                double root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
-                double root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
-                System.out.println("Уравнение имеет два корня:");
-                System.out.println("x1 = " + root1);
-                System.out.println("x2 = " + root2);
-            } else if (discriminant == 0) {
-                double root = -b / (2 * a);
-                System.out.println("Уравнение имеет один корень:");
-                System.out.println("x = " + root);
-            } else {
-                System.out.println("Уравнение не имеет действительных корней.");
-            }
+            System.out.println("Уравнение не имеет действительных корней.");
         }
     }
 
