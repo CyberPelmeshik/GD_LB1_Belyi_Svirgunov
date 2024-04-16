@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -51,21 +52,27 @@ public class ConsoleTest {
             System.out.println("c = " + c);
             System.out.println("Дискриминант = " + discriminant);
 
+            DecimalFormat df = new DecimalFormat("#.00");
+
             // Проверка знака дискриминанта
             if (discriminant > 0) {
                 double root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
                 double root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+                String formatedRoot1 = df.format(root1);
+                String formatedRoot2 = df.format(root2);
                 System.out.println("Уравнение имеет два корня:");
-                System.out.println("x1 = " + root1);
-                System.out.println("x2 = " + root2);
+                System.out.println("x1 = " + formatedRoot1);
+                System.out.println("x2 = " + formatedRoot2);
             } else if (discriminant == 0) {
                 double root = -b / (2 * a);
+                String formatedRoot = df.format(root);
                 System.out.println("Уравнение имеет один корень:");
-                System.out.println("x = " + root);
+                System.out.println("x = " + formatedRoot);
             } else {
                 System.out.println("Уравнение не имеет действительных корней.");
             }
         }
+        scanner.close();
     }
 
     // Метод для извлечения числового значения коэффициента из строки
