@@ -65,6 +65,9 @@ public class ConsoleTest {
                 System.out.println("x2 = " + formatedRoot2);
             } else if (discriminant == 0) {
                 double root = -b / (2 * a);
+                if (root == -0) {
+                    root = 0; // Присвоить значение 0, если корень равен -0
+                }
                 String formatedRoot = df.format(root);
                 System.out.println("Уравнение имеет один корень:");
                 System.out.println("x = " + formatedRoot);
