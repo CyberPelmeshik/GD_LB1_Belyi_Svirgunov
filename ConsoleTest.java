@@ -99,3 +99,4 @@ public class ConsoleTest {
         return Double.parseDouble(str);
     }
 }
+
