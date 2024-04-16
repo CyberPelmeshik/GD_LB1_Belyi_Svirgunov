@@ -22,21 +22,15 @@ public class ConsoleTest {
             String match = matcher.group();
 
             if (match.endsWith("x^2")) {
-                if (match.equals("+x^2")) {
+                if (match.equals("x^2")) {
                     a += 1.0;
-                }
-                else if (match.equals("-x^2")){
-                    a -= 1.0;
                 }
                 else {
                     a += parseCoefficient(match);
                 }
             } else if (match.endsWith("x") && !match.contains("^")) {
-                if (match.equals("+x")) {
+                if (match.equals("x")) {
                     b += 1.0;
-                }
-                else if (match.equals("-x")){
-                    b -= 1.0;
                 }
                 else {
                     b += parseCoefficient(match);
