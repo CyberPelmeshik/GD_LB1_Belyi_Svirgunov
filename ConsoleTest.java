@@ -6,7 +6,6 @@ import java.util.regex.Pattern;
 public class ConsoleTest {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
         System.out.println("Введите уравнение в любом формате (коэффициенты могут быть в любом порядке):");
         String equation = scanner.nextLine();
 
